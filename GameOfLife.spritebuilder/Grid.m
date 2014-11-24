@@ -37,12 +37,12 @@ static const int GRID_COLUMNS = 10;
     
     _gridArray = [NSMutableArray array];
     
-    for (int i = 0; i <= GRID_ROWS; i++) {
+    for (int i = 0; i < GRID_ROWS; i++) {
         _gridArray[i] = [NSMutableArray array];
         
         x = 0;
         
-        for (int j = 0; j <= GRID_COLUMNS; j++) {
+        for (int j = 0; j < GRID_COLUMNS; j++) {
             Creature *creature = [[Creature alloc] initCreature];
             creature.anchorPoint = ccp(0, 0);
             creature.position = ccp(x, y);
@@ -53,6 +53,18 @@ static const int GRID_COLUMNS = 10;
         }
         y+= _cellHeight;
     }
+}
+
+- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    //get the x,y coordinates of the touch
+    CGPoint touchLocation = [touch locationInNode:self];
+    
+    //get the Creature at that location
+    Creature *creature = [self creatureForTouchPosition:touchLocation];
+    
+    //invert it's state - kill it if it's alive, bring it to life if it's dead.
+    creature.isAlive = !creature.isAlive;
 }
 
 
