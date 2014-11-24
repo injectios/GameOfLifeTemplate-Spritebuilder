@@ -46,10 +46,10 @@ static const int GRID_COLUMNS = 10;
             Creature *creature = [[Creature alloc] initCreature];
             creature.anchorPoint = ccp(0, 0);
             creature.position = ccp(x, y);
+            creature.alive = YES;
             [self addChild:creature];
             _gridArray[i][j] = creature;
             x+= _cellWidth;
-            creature.alive = YES;
         }
         y+= _cellHeight;
     }
