@@ -71,8 +71,4 @@ static const int GRID_COLUMNS = 10;
     creature.alive = !creature.isAlive;
 }
 
-- (CCNode *)creatureForTouchPosition:(CGPoint)touchPosition {
-    
-}
-
 @end
