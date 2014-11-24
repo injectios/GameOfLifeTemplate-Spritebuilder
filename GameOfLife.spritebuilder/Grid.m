@@ -147,7 +147,7 @@ static const int GRID_COLUMNS = 10;
     }
 }
 
-- (void)evelopStep {
+- (void)envelopStep {
     [self countNeighbors];
     
     //update each Creature's state
