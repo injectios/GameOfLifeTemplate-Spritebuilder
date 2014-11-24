@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Apportable. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "CCSprite.h"
 
 @interface Grid : CCSprite
