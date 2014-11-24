@@ -74,4 +74,16 @@ static const int GRID_COLUMNS = 10;
     creature.alive = !creature.isAlive;
 }
 
+
+
+- (void)evelopStep {
+    [self countNeighbors];
+    
+    //update each Creature's state
+    [self updateCreatures];
+    
+    //update the generation so the label's text will display the correct generation
+    _generation++;
+}
+
 @end
