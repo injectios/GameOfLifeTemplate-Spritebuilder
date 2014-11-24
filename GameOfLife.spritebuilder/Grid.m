@@ -125,6 +125,28 @@ static const int GRID_COLUMNS = 10;
     return isIndexValid;
 }
 
+- (void)updateCreatures {
+    for (int i = 0; i < [_gridArray count]; i++)
+    {
+        // iterate through all the columns for a given row
+        for (int j = 0; j < [_gridArray[i] count]; j++)
+        {
+            Creature *creature = (Creature *)_gridArray[i][j];
+            if (creature.aliveNaigbours == 0 || creature.aliveNaigbours == 1) {
+                creature.alive = NO;
+            } else if (creature.aliveNaigbours == 3 && !creature.isAlive) {
+                creature.alive = YES;
+            } else if (creature.aliveNaigbours == 2 || creature.aliveNaigbours == 3){
+                creature.alive = YES;
+            } else {
+                creature.alive = NO;
+            }
+            
+            
+        }
+    }
+}
+
 - (void)evelopStep {
     [self countNeighbors];
     
